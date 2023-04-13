@@ -1,23 +1,25 @@
 const { NotImplementedError } = require('../extensions/index.js');
 
 /**
- * The MAC-48 address is six groups of two hexadecimal digits (0 to 9 or A to F),
- * separated by hyphens.
+ * MAC-48 адрес состоит из шести групп из двух шестнадцатеричных цифр (от 0 до 9 или от A до F),
+ * разделенных дефисами.
  *
- * Your task is to check by given string inputString
- * whether it's a MAC-48 address or not.
+ * Ваша задача - проверить, является ли данный строковый вход inputString
+ * MAC-48 адресом или нет.
  *
- * @param {Number} inputString
+ * @param {String} inputString
  * @return {Boolean}
  *
  * @example
- * For 00-1B-63-84-45-E6, the output should be true.
+ * Для 00-1B-63-84-45-E6 вывод должен быть true.
  *
  */
-function isMAC48Address(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function isMAC48Address(inputString) {
+  const macAddressRegex = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/; // шаблон для MAC-48 адреса
+
+  return macAddressRegex.test(inputString); // проверяем соответствует ли строка шаблону
 }
+
 module.exports = {
   isMAC48Address
 };
