@@ -20,20 +20,21 @@ function getMatrixElementsSum(matrix) {
   let sum = 0;
   let isZeroFound = false;
 
-  for (let j = 0; j < matrix[0].length; j++) {
-    for (let i = 0; i < matrix.length; i++) {
-      if (matrix[i][j] === 0) {
-        isZeroFound = true;
+  for (let j = 0; j < matrix[0].length; j++) { // цикл for для обхода элементов матрицы по столбцам
+    for (let i = 0; i < matrix.length; i++) { // цикл for для обхода элементов матрицы по строкам
+      if (matrix[i][j] === 0) { // если текущий элемент равен 0
+        isZeroFound = true; // устанавливаем флаг, что был найден 0
       }
-      if (!isZeroFound) {
-        sum += matrix[i][j];
+      if (!isZeroFound) { // если флаг не был установлен
+        sum += matrix[i][j]; // добавляем текущий элемент к сумме
       }
     }
-    isZeroFound = false;
+    isZeroFound = false; // сбрасываем флаг, чтобы начать новый столбец
   }
 
-  return sum;
+  return sum; // возвращаем сумму элементов
 }
+
 
 module.exports = {
   getMatrixElementsSum
